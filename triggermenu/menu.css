@@ -1,0 +1,26 @@
+body {
+    background-color: #191716;
+}
+
+h1, h2, h3, h4, h5, p, label {
+    color: white;
+}
+
+div {
+    background-color: #1B5299;
+}
+
+form {
+    background-color: #779CAB;
+    padding: 1%;
+}
+
+.submit {
+    background-color: #1B5299;
+    border-color: #191716;
+}
+
+.reset {
+    background-color: #BE7C4D;
+    border-color: #191716;
+}

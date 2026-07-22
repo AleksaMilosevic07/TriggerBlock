@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "TriggerBlock",
+  "version": "1.0.0",
+
+  "description": "Filters sensitive content for many different phobias. ",
+
+  "icons": {
+    "48": "icons/TriggerBlockLogo.png"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "triggerblock@mozilla.org",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["triggerblock.js"]
+    }
+  ]
+}
