@@ -1,0 +1,14 @@
+[
+    {
+        "name": "arachnophobia",
+        "desc": "Fear of spiders and other arachnids",
+        "triggerWords": [],
+        "safeWords": [] 
+    },
+    {
+        "name": "ommetaphobia",
+        "desc": "Fear of eyes",
+        "triggerWords": [],
+        "safeWords": [] 
+    }
+]

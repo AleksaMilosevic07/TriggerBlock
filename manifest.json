@@ -18,6 +18,14 @@
     }
   },
 
+  "permissions": ["cookies"],
+
+  "action": {
+    "default_icon": "icons/TriggerBlockLogo.png",
+    "default_title": "TriggerBlock",
+    "default_popup": "triggermenu/menu.html"
+  },
+
   "content_scripts": [
     {
       "matches": ["*://*/*"],
