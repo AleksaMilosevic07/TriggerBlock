@@ -18,7 +18,7 @@
     }
   },
 
-  "permissions": ["cookies"],
+  "permissions": ["storage"],
 
   "action": {
     "default_icon": "icons/TriggerBlockLogo.png",
