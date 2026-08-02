@@ -29,4 +29,5 @@ form {
     border-style: solid;
     border-width: 2px;
     border-color: #FB8F37;
+    display: none;
 }
