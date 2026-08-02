@@ -51,5 +51,8 @@ fearForm.addEventListener("submit", function(e){
 fearForm.addEventListener("formdata", function(e){
     let fearList = e.formData;
     fearList = fearList.getAll("fears");
-    console.log(fearList);
+    console.log(`${fearList}`);
+    browser.storage.local.set({"fears": fearList});
+    // Debug
+    console.log(browser.storage.local.get());
 });
