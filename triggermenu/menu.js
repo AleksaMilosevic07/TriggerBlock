@@ -4,6 +4,15 @@ const fearForm = document.getElementById("fear-form");
 const fearOptions = document.getElementById("fear-options");
 let submitButton = document.getElementById("submit");
 
+let loadedFears = [];
+const loadPreferences = browser.storage.local.get("fears");
+loadPreferences.then((results) => {
+    loadedFears = results.fears;
+    console.log(`loadedFears: ${loadedFears}`);
+});
+
+console.log(loadedFears);
+
 for(let i = 0; i < fears.length; i++)
 {
     // Label
@@ -17,6 +26,10 @@ for(let i = 0; i < fears.length; i++)
     fearCheck.name = "fears";
     fearCheck.id = fears[i].name;
     fearCheck.value = fears[i].name;
+    if(loadedFears.includes(fears[i].value))
+    {
+        fearCheck.checked = true;
+    }
     fearOptions.appendChild(fearCheck);
     
     let br = document.createElement("br");
@@ -52,7 +65,11 @@ fearForm.addEventListener("formdata", function(e){
     let fearList = e.formData;
     fearList = fearList.getAll("fears");
     console.log(`${fearList}`);
-    browser.storage.local.set({"fears": fearList});
-    // Debug
-    console.log(browser.storage.local.get());
+    const savePreference = browser.storage.local.set({"fears": fearList});
+    savePreference.then(() => {
+        console.log("Succesfully saved preference!");
+    }).catch(() => {
+        console.log("Failed to save preference!");
+    });
 });
+
