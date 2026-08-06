@@ -9,47 +9,44 @@ const loadPreferences = browser.storage.local.get("fears");
 loadPreferences.then((results) => {
     loadedFears = results.fears;
     console.log(`loadedFears: ${loadedFears}`);
-});
-
-console.log(loadedFears);
-
-for(let i = 0; i < fears.length; i++)
-{
-    // Label
-    let fear = document.createElement("label");
-    fear.innerText = `${fears[i].name}`;
-    fearOptions.appendChild(fear);
-    
-    // Checkbox
-    let fearCheck = document.createElement("input")
-    fearCheck.type = "checkbox";
-    fearCheck.name = "fears";
-    fearCheck.id = fears[i].name;
-    fearCheck.value = fears[i].name;
-    if(loadedFears.includes(fears[i].value))
+    for(let i = 0; i < fears.length; i++)
     {
-        fearCheck.checked = true;
-    }
-    fearOptions.appendChild(fearCheck);
-    
-    let br = document.createElement("br");
-    fearOptions.appendChild(br);
-    
-    // Description
-    let fearDesc = document.createElement("p");
-    fearDesc.innerHTML = `${fears[i].desc}`;
-    fearDesc.hidden = true;
-    fearOptions.appendChild(fearDesc);
-    
-    // Event listener
-    fearCheck.addEventListener("click", function(e){
-        if(fearCheck.checked)
+        // Label
+        let fear = document.createElement("label");
+        fear.innerText = `${fears[i].name}`;
+        fearOptions.appendChild(fear);
+        
+        // Checkbox
+        let fearCheck = document.createElement("input")
+        fearCheck.type = "checkbox";
+        fearCheck.name = "fears";
+        fearCheck.id = fears[i].name;
+        fearCheck.value = fears[i].name;
+        if(loadedFears.includes(fears[i].name))
         {
-            fearDesc.hidden = false;
+            fearCheck.checked = true;
         }
-        else fearDesc.hidden = true;
-    });
-}
+        fearOptions.appendChild(fearCheck);
+
+        let br = document.createElement("br");
+        fearOptions.appendChild(br);
+
+        // Description
+        let fearDesc = document.createElement("p");
+        fearDesc.innerHTML = `${fears[i].desc}`;
+        fearDesc.hidden = true;
+        fearOptions.appendChild(fearDesc);
+
+        // Event listener
+        fearCheck.addEventListener("click", function(e){
+            if(fearCheck.checked)
+            {
+                fearDesc.hidden = false;
+            }
+            else fearDesc.hidden = true;
+        });
+    }   
+});
 
 fearForm.addEventListener("change", function(e){
     //! If selected is different then what is saved, show the warning
