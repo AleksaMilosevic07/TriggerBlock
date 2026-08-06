@@ -34,7 +34,8 @@ loadPreferences.then((results) => {
         // Description
         let fearDesc = document.createElement("p");
         fearDesc.innerHTML = `${fears[i].desc}`;
-        fearDesc.hidden = true;
+        if(fearCheck.checked) fearDesc.hidden = false;
+        else fearDesc.hidden = true;
         fearOptions.appendChild(fearDesc);
 
         // Event listener
@@ -56,6 +57,7 @@ fearForm.addEventListener("change", function(e){
 fearForm.addEventListener("submit", function(e){
     e.preventDefault();
     new FormData(fearForm);
+    changeWarning.style.display = "";
 });
 
 fearForm.addEventListener("formdata", function(e){
