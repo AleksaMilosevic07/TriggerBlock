@@ -1,14 +1,7 @@
-/* SHITBULL!!!
-    const fearForm = document.getElementById("fear-form");
-    let changeWarning = document.getElementById("changeWarning");
+let activeFears = [];
 
-
-    fearForm.addEventListener("submit", function(e){
-        e.preventDefault();
-        const formData = new FormData(fearForm);
-        let phobias = formData.getAll("phobias");
-        ! Save preferences
-    });
-
-*/
-
+const selectedFears = browser.storage.local.get("fears");
+selectedFears.then((result) => {
+    activeFears = result.fears;
+    console.log(`Fears: ${activeFears}`);
+});

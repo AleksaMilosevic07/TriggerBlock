@@ -3,6 +3,7 @@ import fears from '../fears.json' with { type: 'json' };
 const fearForm = document.getElementById("fear-form");
 const fearOptions = document.getElementById("fear-options");
 let submitButton = document.getElementById("submit");
+let clearButton = document.getElementById("reset");
 
 let loadedFears = [];
 const loadPreferences = browser.storage.local.get("fears");
@@ -49,8 +50,11 @@ loadPreferences.then((results) => {
     }   
 });
 
+clearButton.addEventListener("click", function(e){
+    changeWarning.style.display = "block";
+});
+
 fearForm.addEventListener("change", function(e){
-    //! If selected is different then what is saved, show the warning
     changeWarning.style.display = "block";
 });
 
