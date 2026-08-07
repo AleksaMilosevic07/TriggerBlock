@@ -1,14 +1,129 @@
 [
-    {
-        "name": "arachnophobia",
-        "desc": "Fear of spiders and other arachnids",
-        "triggerWords": [],
-        "safeWords": [] 
-    },
-    {
-        "name": "ommetaphobia",
-        "desc": "Fear of eyes",
-        "triggerWords": [],
-        "safeWords": [] 
-    }
+  {
+    "name": "arachnophobia",
+    "desc": "Fear of spiders and other arachnids",
+    "triggerWords": [
+      "arachnophobia",
+      "spider",
+      "tarantula",
+      "cobweb",
+      "arachnid",
+      "daddy longlegs",
+      "black widow",
+      "chelicerae",
+      "eight-legged"
+    ],
+    "safeWords": [
+      "spider-man",
+      "spider-man: into the spider-verse",
+      "spider plant",
+      "spider solitaire",
+      "spiderman",
+      "spider man"
+    ]
+  },
+  {
+    "name": "ommetaphobia",
+    "desc": "Fear of eyes",
+    "triggerWords": [
+      "ommetaphobia",
+      "eyeball",
+      "eyeballs",
+      "pupil",
+      "iris",
+      "cornea",
+      "optics",
+      "staring eye",
+      "eyeliner",
+      "disembodied eye",
+      "eye makeup"
+    ],
+    "safeWords": [
+      "eye of the tiger",
+      "bullseye",
+      "eye doctor",
+      "eyeshadow"
+    ]
+  },
+  {
+    "name": "ophidiophobia",
+    "desc": "Fear of snakes",
+    "triggerWords": [
+      "ophidiophobia",
+      "snake",
+      "viper",
+      "cobra",
+      "python",
+      "rattlesnake",
+      "serpent",
+      "anaconda",
+      "fangs"
+    ],
+    "safeWords": [
+      "python programming",
+      "python script",
+      "snake game",
+      "solid snake",
+      "snake oil",
+      "pysnake"
+    ]
+  },
+  {
+    "name": "coulrophobia",
+    "desc": "Fear of clowns",
+    "triggerWords": [
+      "coulrophobia",
+      "clown",
+      "jester",
+      "pennywise",
+      "harlequin",
+      "scary clown",
+      "creepy clown",
+      "killer clown"
+    ],
+    "safeWords": [
+      "clownfish",
+      "clown fish",
+      "clowning around"
+    ]
+  },
+  {
+    "name": "musophobia",
+    "desc": "Fear of mice and rats",
+    "triggerWords": [
+      "musophobia",
+      "murophobia",
+      "mouse",
+      "rat",
+      "rodent",
+      "vermin",
+      "rodents"
+    ],
+    "safeWords": [
+      "computer mouse",
+      "wireless mouse",
+      "gaming mouse",
+      "mickey mouse",
+      "ratatouille",
+      "gym rat",
+      "mouse pointer"
+    ]
+  },
+  {
+    "name": "galeophobia",
+    "desc": "Fear of sharks",
+    "triggerWords": [
+      "galeophobia",
+      "shark",
+      "great white",
+      "hammerhead",
+      "shark attack",
+      "dorsal fin"
+    ],
+    "safeWords": [
+      "loan shark",
+      "pool shark",
+      "shark tank"
+    ]
+  }
 ]
