@@ -43,14 +43,49 @@ const observer = new MutationObserver(mutationList => {
             }
             catch {return};
             if(matches.length == 0) return
-            console.log(matches);
+            
+            for(let i = 0; i < matches.length; i++)
+            {
+                // Checking alt text
+                if(scanText(matches[i].alt))
+                {
+                    // blur image
+                }
+                /* 
+                    1. Get parent element
+                    2. Check for text around it
+                    3. scanText() that 
+                    4. If no text, keep going upwards until you find text 
+                */
+                else
+                {
+                    let parent = matches[i].parentElement;
+                    console.log(parent);                
+                }
+            }
+
         });
     });
-
 });
 
-// This function will scan the given text for any trigger words, if they are not in the safe word list, it will return positive 
+// This function will scan the given text for any trigger words, if they are not in the safe word list, it will return true
 function scanText(text)
 {
-    
+    // Check if any trigger word is in the text
+    for(let i = 0; i < triggerWords.length; i++)
+    {
+        let index = text.search(new RegExp(`\\b${triggerWords[i]}\\b`, "i"))
+        // If you find the word on the list...
+        if(index != -1)
+        {
+            // Check if remainder of the string is a safeword
+            for(let s = 0; s < safeWords.length; s++)
+            {
+                let substring = text.substring(index - safeWords[s].length, index + safeWords[s].length);
+                if(substring.search(new RegExp(safeWords[s], "i")) != -1) return false;  
+            }            
+            return true; // It is not on the safeword list
+        }
+    }
+    return false; // No trigger words found    
 }
