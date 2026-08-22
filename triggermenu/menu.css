@@ -1,33 +1,194 @@
-body {
-    background-color: #191716;
+:root {
+    --bg: #191716;
+    --surface: #211e1c;
+    --accent: #1b5299;
+    --accent-bright: #2569bd;
+    --accent-soft: #779cab;
+    --orange: #be7c4d;
+    --warning-bg: #bfae48;
+    --warning-border: #fb8f37;
+    --text: #f0f0f0;
+    --muted: #a8a29b;
+    --switch-off: #454140;
 }
 
-h1, h2, h3, h4, h5, p, label {
-    color: white;
+body {
+    width: 340px;
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 14px;
 }
 
 .topBar {
-    background-color: #1B5299;
+    background-color: var(--accent);
+    border-bottom: 2px solid var(--accent-soft);
+    padding: 14px 16px 12px;
+}
+
+.topBar h1 {
+    margin: 0;
+    font-size: 1.3rem;
+    letter-spacing: 0.02em;
+}
+
+.topBar h2 {
+    margin: 2px 0 0;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.75);
 }
 
 form {
-    padding: 1%;
+    padding: 12px 16px 16px;
 }
 
-.submit {
-    background-color: #1B5299;
-    border-color: #779CAB;
+#fear-options {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    column-gap: 10px;
+    row-gap: 6px;
+    margin-bottom: 16px;
 }
 
-.reset {
-    background-color: #BE7C4D;
-    border-color: #779CAB;
+#fear-options br {
+    display: none;
+}
+
+#fear-options label {
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+#fear-options input[type="checkbox"] {
+    appearance: none;
+    position: relative;
+    width: 38px;
+    height: 22px;
+    margin: 0;
+    border-radius: 999px;
+    background-color: var(--switch-off);
+    cursor: pointer;
+    transition: background-color 0.18s ease;
+}
+
+#fear-options input[type="checkbox"]:hover {
+    filter: brightness(1.2);
+}
+
+#fear-options input[type="checkbox"]::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--text);
+    transition: transform 0.18s ease;
+}
+
+#fear-options input[type="checkbox"]:checked {
+    background-color: var(--accent);
+}
+
+#fear-options input[type="checkbox"]:checked::after {
+    transform: translateX(16px);
+}
+
+#fear-options p {
+    grid-column: 1 / -1;
+    margin: -2px 0 6px;
+    color: var(--muted);
+    font-size: 0.82rem;
+    line-height: 1.35;
+}
+
+/* explicit display rules above would defeat the hidden attribute without this guard */
+#fear-options p[hidden] {
+    display: none;
 }
 
 .changeWarning {
-    background-color: #BFAE48;
-    border-style: solid;
-    border-width: 2px;
-    border-color: #FB8F37;
+    background-color: var(--warning-bg);
+    border-left: 4px solid var(--warning-border);
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 12px;
     display: none;
+}
+
+.changeWarning h4,
+.changeWarning p {
+    margin: 0;
+    color: #241f1a;
+}
+
+.changeWarning h4 {
+    font-size: 0.85rem;
+    margin-bottom: 2px;
+}
+
+.changeWarning p {
+    font-size: 0.8rem;
+}
+
+button {
+    font: inherit;
+    padding: 7px 18px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.submit {
+    background-color: var(--accent);
+    border-color: var(--accent-soft);
+    color: var(--text);
+    margin-right: 8px;
+}
+
+.submit:hover {
+    background-color: var(--accent-bright);
+}
+
+.reset {
+    background-color: transparent;
+    border-color: var(--orange);
+    color: var(--orange);
+}
+
+.reset:hover {
+    background-color: rgba(190, 124, 77, 0.15);
+}
+
+a {
+    color: var(--accent-soft);
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0 16px 14px;
+}
+
+.version {
+    margin: 0;
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent-bright);
+    outline-offset: 2px;
 }

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "TriggerBlock",
-  "version": "1.0.0",
+  "version": "1.1.1",
 
   "description": "Filters sensitive content for many different phobias. ",
 
@@ -29,7 +29,15 @@
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["triggerblock.js"]
+      "js": ["triggerblock.js"],
+      "css": ["triggerblock.css"]
+    }
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": ["fears.json"],
+      "matches": ["*://*/*"]
     }
   ]
 }

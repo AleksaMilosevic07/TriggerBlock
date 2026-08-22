@@ -4,9 +4,10 @@ const fearForm = document.getElementById("fear-form");
 const fearOptions = document.getElementById("fear-options");
 let submitButton = document.getElementById("submit");
 let clearButton = document.getElementById("reset");
+const changeWarning = document.getElementById("changeWarning");
 
 let loadedFears = [];
-const loadPreferences = browser.storage.local.get("fears");
+const loadPreferences = browser.storage.local.get({ fears: [] });
 loadPreferences.then((results) => {
     loadedFears = results.fears;
     console.log(`loadedFears: ${loadedFears}`);
@@ -76,3 +77,7 @@ fearForm.addEventListener("formdata", function(e){
     });
 });
 
+const manifest = browser.runtime.getManifest();
+const versionText = document.getElementById("version");
+
+versionText.innerText = `v${manifest.version}`;

@@ -11,7 +11,24 @@
       "daddy longlegs",
       "black widow",
       "chelicerae",
-      "eight-legged"
+      "eight-legged",
+      "brown recluse",
+      "wolf spider",
+      "jumping spider",
+      "orb weaver",
+      "funnel-web",
+      "huntsman",
+      "camel spider",
+      "redback",
+      "cellar spider",
+      "trapdoor spider",
+      "brazilian wandering spider",
+      "spinneret",
+      "harvestman",
+      "latrodectus",
+      "loxosceles",
+      "araneae",
+      "scorpion"
     ],
     "safeWords": [
       "spider-man",
@@ -19,7 +36,8 @@
       "spider plant",
       "spider solitaire",
       "spiderman",
-      "spider man"
+      "spider man",
+      "spider lily"
     ]
   },
   {
@@ -29,14 +47,25 @@
       "ommetaphobia",
       "eyeball",
       "eyeballs",
-      "pupil",
-      "iris",
       "cornea",
-      "optics",
       "staring eye",
+      "staring eyes",
       "eyeliner",
       "disembodied eye",
-      "eye makeup"
+      "eye makeup",
+      "sclera",
+      "conjunctiva",
+      "retina",
+      "eyelid",
+      "eyelash",
+      "eye socket",
+      "ocular",
+      "ophthalmic",
+      "conjunctivitis",
+      "pink eye",
+      "glaucoma",
+      "glass eye",
+      "prosthetic eye"
     ],
     "safeWords": [
       "eye of the tiger",
@@ -57,15 +86,35 @@
       "rattlesnake",
       "serpent",
       "anaconda",
-      "fangs"
+      "snake fangs",
+      "adder",
+      "mamba",
+      "taipan",
+      "krait",
+      "copperhead",
+      "cottonmouth",
+      "water moccasin",
+      "boa constrictor",
+      "king cobra",
+      "ball python",
+      "sidewinder",
+      "coral snake",
+      "garter snake",
+      "sea snake",
+      "venomous snake",
+      "herpetology",
+      "ophidian"
     ],
     "safeWords": [
       "python programming",
       "python script",
+      "monty python",
       "snake game",
       "solid snake",
       "snake oil",
-      "pysnake"
+      "pysnake",
+      "cobra kai",
+      "dodge viper"
     ]
   },
   {
@@ -79,7 +128,13 @@
       "harlequin",
       "scary clown",
       "creepy clown",
-      "killer clown"
+      "killer clown",
+      "circus clown",
+      "birthday clown",
+      "rodeo clown",
+      "clown mask",
+      "clown makeup",
+      "evil clown"
     ],
     "safeWords": [
       "clownfish",
@@ -94,19 +149,36 @@
       "musophobia",
       "murophobia",
       "mouse",
+      "mice",
       "rat",
+      "rats",
       "rodent",
+      "rodents",
       "vermin",
-      "rodents"
+      "field mouse",
+      "house mouse",
+      "dormouse",
+      "vole",
+      "lemming",
+      "gerbil",
+      "hamster",
+      "guinea pig",
+      "infestation"
     ],
     "safeWords": [
       "computer mouse",
       "wireless mouse",
       "gaming mouse",
       "mickey mouse",
+      "minnie mouse",
+      "danger mouse",
+      "modest mouse",
+      "mouse pad",
+      "mouse pointer",
       "ratatouille",
       "gym rat",
-      "mouse pointer"
+      "rat race",
+      "smell a rat"
     ]
   },
   {
@@ -118,12 +190,27 @@
       "great white",
       "hammerhead",
       "shark attack",
-      "dorsal fin"
+      "dorsal fin",
+      "tiger shark",
+      "bull shark",
+      "mako",
+      "thresher",
+      "whale shark",
+      "nurse shark",
+      "reef shark",
+      "megalodon",
+      "shark fin",
+      "shark week",
+      "jaws"
     ],
     "safeWords": [
       "loan shark",
       "pool shark",
-      "shark tank"
+      "card shark",
+      "shark tank",
+      "shark vacuum",
+      "jaws of life",
+      "jaws of death"
     ]
   }
 ]
