@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="4 18 192 170" width="200" height="200">
+  <!-- TriggerBlock logo - original cute six-legged spider, single-color line art -->
+  <g stroke="#f0f0f0" stroke-linecap="round" stroke-linejoin="round" fill="none">
+
+    <!-- legs (behind body), three per side, hand-drawn curves -->
+    <path d="M53,79 C31,62 21,46 26,25" stroke-width="7"/>
+    <path d="M44,110 C12,106 4,90 10,70" stroke-width="7"/>
+    <path d="M52,138 C22,150 13,166 21,182" stroke-width="7"/>
+    <path d="M147,79 C169,62 179,46 174,25" stroke-width="7"/>
+    <path d="M156,110 C188,106 196,90 190,70" stroke-width="7"/>
+    <path d="M148,138 C178,150 187,166 179,182" stroke-width="7"/>
+
+    <!-- body -->
+    <circle cx="100" cy="108" r="56" stroke-width="8"/>
+
+    <!-- ^ ^ eyes -->
+    <path d="M76,96 L86,86 L96,96" stroke-width="6.5"/>
+    <path d="M104,96 L114,86 L124,96" stroke-width="6.5"/>
+
+    <!-- smile -->
+    <path d="M86,118 Q100,130 114,118" stroke-width="6.5"/>
+  </g>
+</svg>

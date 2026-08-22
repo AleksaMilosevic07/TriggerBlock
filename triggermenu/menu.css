@@ -25,6 +25,15 @@ body {
     background-color: var(--accent);
     border-bottom: 2px solid var(--accent-soft);
     padding: 14px 16px 12px;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    right: 14px;
+    bottom: 0;
+    width: 56px;
+    height: auto;
 }
 
 .topBar h1 {

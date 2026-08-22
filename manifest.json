@@ -1,11 +1,12 @@
 {
   "manifest_version": 3,
   "name": "TriggerBlock",
-  "version": "1.1.2",
+  "version": "1.1.3",
 
   "description": "Filters sensitive content for many different phobias. ",
 
   "icons": {
+    "32": "icons/TriggerBlockLogo32.svg",
     "48": "icons/TriggerBlockLogo.png"
   },
 
@@ -21,7 +22,9 @@
   "permissions": ["storage"],
 
   "action": {
-    "default_icon": "icons/TriggerBlockLogo.png",
+    "default_icon": {
+      "32": "icons/TriggerBlockLogo32.svg"
+    },
     "default_title": "TriggerBlock",
     "default_popup": "triggermenu/menu.html"
   },
