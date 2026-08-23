@@ -89,3 +89,9 @@ function scanText(text)
     }
     return false; // No trigger words found    
 }
+
+// Blur the media
+function blurr()
+{
+    
+}

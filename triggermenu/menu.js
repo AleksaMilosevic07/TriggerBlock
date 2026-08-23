@@ -77,6 +77,17 @@ fearForm.addEventListener("formdata", function(e){
     });
 });
 
+const logo = document.getElementById("logo");
+logo.addEventListener("click", function(e){
+    if(logo.className.search("jump") == -1)
+    {
+        logo.classList.add("jump")
+    }
+});
+logo.addEventListener("animationend", function(e){
+    logo.classList.remove("jump");
+});
+
 const manifest = browser.runtime.getManifest();
 const versionText = document.getElementById("version");
 
