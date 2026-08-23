@@ -22,6 +22,7 @@ const triggerDetection = Promise.all([fearsPromise, activeFearsPromise])
     }
     
     observer.observe(document.body, {subtree: true, childList: true});
+    scanPage(document.body); // Initial scan, before MutationObserver fires up
 });
 
 // Function will fire once a detection in the dom is notice
@@ -31,39 +32,10 @@ const observer = new MutationObserver(mutationList => {
         2. If any of them are images, check the parent element
         3. Inspect the parent element for headings, paragraphs, and other text (scanText function) 
     */ 
-
     mutationList.forEach(mutationRecord => {
         // console.log(mutationRecord);
         mutationRecord.addedNodes.forEach(node => {
-            
-            let matches;
-            try
-            {
-                matches = node.querySelectorAll("img");
-            }
-            catch {return};
-            if(matches.length == 0) return
-            
-            for(let i = 0; i < matches.length; i++)
-            {
-                // Checking alt text
-                if(scanText(matches[i].alt))
-                {
-                    blurr(matches[i]);
-                }
-                else
-                {
-                    let parent = matches[i].parentElement;
-                    let parentChildren = parent.childNodes;
-                    
-                    parentChildren.forEach(child => {
-                        if(scanText(child.textContent))
-                        {
-                            blurr(matches[i]);
-                        }
-                    });
-                }
-            }
+            scanPage(node);
         });
     });
 });
@@ -74,7 +46,7 @@ function scanText(text)
     // Check if any trigger word is in the text
     for(let i = 0; i < triggerWords.length; i++)
     {
-        let index = text.search(new RegExp(`\\b${triggerWords[i]}\\b`, "i"))
+        let index = text.search(new RegExp(`\\b${triggerWords[i]}(?:es|s)?\\b`, "i"))
         // If you find the word on the list...
         if(index != -1)
         {
@@ -111,11 +83,45 @@ function blurr(img)
     
     // Button event listener
     b.addEventListener("click", function(e){
-    
+        e.preventDefault();
+        e.stopPropagation();
         img.classList.add("tb-revealed");
         img.parentElement.classList.add("tb-revealed");
     });
     
     overlayCard.appendChild(b);
     img.after(overlayCard);
+}
+
+// It will look images, and send them further for their content to be scanned
+function scanPage(node)
+{
+    let matches;
+    try
+    {
+        matches = node.querySelectorAll("img");
+    }
+    catch {return};
+    if(matches.length == 0) return
+    
+    for(let i = 0; i < matches.length; i++)
+    {
+        // Checking alt text
+        if(scanText(matches[i].alt))
+        {
+            blurr(matches[i]);
+        }
+        else
+        {
+            let parent = matches[i].parentElement;
+            let parentChildren = parent.childNodes;
+            
+            parentChildren.forEach(child => {
+                if(scanText(child.textContent))
+                {
+                    blurr(matches[i]);
+                }
+            });
+        }
+    }
 }
