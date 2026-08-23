@@ -1,5 +1,6 @@
 # TriggerBlock
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 A browser extension that hides media content which triggers specific phobias. Made for CS50 final project.
 ## How does it work?
 It checks image alt text as well as titles, headers and paragraphs inside the article the image was found in. If any of the text contains words that may trigger a reaction in certain phobias, it will be blurred, with a button to reveal it in case it's a false positive. Every phobia also includes a SAFE WORD list, to help filter out false positives as much as possible (for example spiderman won't be flagged under arachnophobia, python development won't be considered ophidiophobia, etc). TriggerBlock will not blur or hide text, it will specifically target images to avoid visual response. This approach catches most, but not all, triggering content.
@@ -22,4 +23,4 @@ Anyone willing to contribute is much appreciated and welcome, and you don't need
 You can help by reporting content that should have been flagged but wasn't, expanding our lists of trigger words and safe words, or suggesting entirely new phobias to support.
 
 ## Installation
-*(coming soon — extension is awaiting store publication)*
+*(coming soon - extension is awaiting store publication)*
