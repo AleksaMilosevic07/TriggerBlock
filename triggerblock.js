@@ -108,7 +108,7 @@ function scanPage(node)
     
     for(let i = 0; i < matches.length; i++)
     {
-        if (matches[i].clientWidth < MIN || matches[i].clientHeight < MIN) continue; // Ignore emojis
+        // if (matches[i].clientWidth < MIN || matches[i].clientHeight < MIN) continue; // Ignore emojis
         let probe = matches[i].tagName === "VIDEO" ? matches[i].title : matches[i].alt;
         
         if(scanText(probe))
