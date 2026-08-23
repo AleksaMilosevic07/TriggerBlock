@@ -93,6 +93,7 @@ function blurr(img)
     img.after(overlayCard);
 }
 
+const MIN = 40; // Every image below this size will be ignored, specifically made to address twitter emojis
 // It will look images, and send them further for their content to be scanned
 function scanPage(node)
 {
@@ -102,10 +103,12 @@ function scanPage(node)
         matches = node.querySelectorAll("img, video");
     }
     catch {return};
+    
     if(matches.length == 0) return
     
     for(let i = 0; i < matches.length; i++)
     {
+        if (matches[i].clientWidth < MIN || matches[i].clientHeight < MIN) continue; // Ignore emojis
         let probe = matches[i].tagName === "VIDEO" ? matches[i].title : matches[i].alt;
         
         if(scanText(probe))
