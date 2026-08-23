@@ -99,15 +99,16 @@ function scanPage(node)
     let matches;
     try
     {
-        matches = node.querySelectorAll("img");
+        matches = node.querySelectorAll("img, video");
     }
     catch {return};
     if(matches.length == 0) return
     
     for(let i = 0; i < matches.length; i++)
     {
-        // Checking alt text
-        if(scanText(matches[i].alt))
+        let probe = matches[i].tagName === "VIDEO" ? matches[i].title : matches[i].alt;
+        
+        if(scanText(probe))
         {
             blurr(matches[i]);
         }
@@ -115,7 +116,6 @@ function scanPage(node)
         {
             let parent = matches[i].parentElement;
             let parentChildren = parent.childNodes;
-            
             parentChildren.forEach(child => {
                 if(scanText(child.textContent))
                 {

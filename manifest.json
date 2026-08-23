@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "TriggerBlock",
-  "version": "1.1.6",
+  "version": "1.1.7",
 
   "description": "Filters sensitive content for many different phobias. ",
 
