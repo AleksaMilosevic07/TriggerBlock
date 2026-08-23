@@ -18,6 +18,7 @@ It checks image alt text as well as titles, headers and paragraphs inside the ar
    
    I don't use Chrome, and I'd have to pay a fee to submit my extension there as well as change some code to support their browser. It will come eventually.
 5. Mascot name
+    
     All suggestions are welcome :)
 ## How to make TriggerBlock better?
 TriggerBlock is not perfect, but with your help we can make it better.
