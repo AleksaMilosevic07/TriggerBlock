@@ -49,21 +49,21 @@ const observer = new MutationObserver(mutationList => {
                 // Checking alt text
                 if(scanText(matches[i].alt))
                 {
-                    // blur image
+                    blurr(matches[i]);
                 }
-                /* 
-                    1. Get parent element
-                    2. Check for text around it
-                    3. scanText() that 
-                    4. If no text, keep going upwards until you find text 
-                */
                 else
                 {
                     let parent = matches[i].parentElement;
-                    console.log(parent);                
+                    let parentChildren = parent.childNodes;
+                    
+                    parentChildren.forEach(child => {
+                        if(scanText(child.textContent))
+                        {
+                            blurr(matches[i]);
+                        }
+                    });
                 }
             }
-
         });
     });
 });
@@ -91,7 +91,31 @@ function scanText(text)
 }
 
 // Blur the media
-function blurr()
+function blurr(img)
 {
+    if(img.classList.contains("tb-blurred")) return;
+    img.parentElement.classList.add("tb-shield-host");
+    img.classList.add("tb-blurred");
+    // Overlay card, warning and reveal button added to here, and card is appended to img element
+    let overlayCard = document.createElement("div");
+    overlayCard.classList.add("tb-overlay");
+    // Warning text
+    let p = document.createElement("p");
+    p.classList.add("tb-warning");
+    p.innerText = "This content might be sensitive";
+    overlayCard.appendChild(p);
+    // Reveal button
+    let b = document.createElement("button");
+    b.innerText = "Reveal";
+    b.classList.add("tb-reveal");
     
+    // Button event listener
+    b.addEventListener("click", function(e){
+    
+        img.classList.add("tb-revealed");
+        img.parentElement.classList.add("tb-revealed");
+    });
+    
+    overlayCard.appendChild(b);
+    img.after(overlayCard);
 }
