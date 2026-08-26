@@ -60,6 +60,7 @@ function scanText(text)
 function blurr(img)
 {
     if(img.classList.contains("tb-blurred")) return;
+
     img.parentElement.classList.add("tb-shield-host");
     img.classList.add("tb-blurred");
     // Overlay card, warning and reveal button added to here, and card is appended to img element
@@ -75,6 +76,7 @@ function blurr(img)
     b.innerText = "Reveal";
     b.classList.add("tb-reveal");
     
+    
     // Button event listener
     b.addEventListener("click", function(e){
         e.preventDefault();
@@ -84,9 +86,17 @@ function blurr(img)
     });
     
     overlayCard.appendChild(b);
-    img.after(overlayCard);
+    img.parentElement.appendChild(overlayCard);
+
+    // Stop the video from playing
+    if(img.pause) img.pause();
+    img.autoplay = false;
 }
 
+// This is how many elements upwards will it search for potential trigger content 
+const searchLevel = 3;
+// Minimal size of an image element to be worth scanning
+const MIN = 32;
 // It will look images, and send them further for their content to be scanned
 function scanPage(node)
 {
@@ -101,25 +111,47 @@ function scanPage(node)
     
     for(let i = 0; i < matches.length; i++)
     {
-        // if (matches[i].clientWidth < MIN || matches[i].clientHeight < MIN) continue; // Ignore emojis
-        let probe = matches[i].tagName === "VIDEO" ? matches[i].title : matches[i].alt;
-        
-        if(scanText(probe))
-        {
-            blurr(matches[i]);
-        }
-        else
-        {
-            let parent = matches[i].parentElement;
-            let parentChildren = parent.childNodes;
-            parentChildren.forEach(child => {
-                if(scanText(child.textContent))
-                {
-                    blurr(matches[i]);
-                }
-            });
-        }
+        if (matches[i].clientWidth < MIN || matches[i].clientHeight < MIN) continue; // Ignore emojis
+        scanContext(matches[i], matches[i].parentElement, searchLevel)
     }
 }
 
-// test
+
+
+// Scan the surrounding text on the image, walk up the dom tree looking for potential matches
+function scanContext(media, parent, level)
+{
+    if(level <= 0) return;
+    let probe = media.tagName === "VIDEO" ? media.title : media.alt;
+    if(scanText(probe))
+    {
+        blurr(media);
+        return;
+    }
+    else
+    {
+        let parentElement = parent.parentElement;
+        let parentChildren = parentElement.childNodes;
+        
+        for(const child of parentChildren)
+        {
+            let childText = child.textContent;
+            if(scanText(childText))
+            {
+                blurr(media);
+                return;
+            }
+        }
+        // If there is no meaningful content to scan in the child element, call the function again WITHOUT decrementing the level
+        if(parentElement.textContent.trim().length == 0 && parentElement)
+        {
+            parentElement = parentElement.parentElement;
+            scanContext(media, parentElement, level); 
+        }
+        else 
+        {
+            // Call the function recursively for the parent
+            scanContext(media, parentElement, --level);
+        }
+    }
+}
