@@ -20,20 +20,14 @@ const triggerDetection = Promise.all([fearsPromise, activeFearsPromise])
             safeWords = safeWords.concat(fears[i].safeWords);
         }
     }
-    
     observer.observe(document.body, {subtree: true, childList: true});
     scanPage(document.body); // Initial scan, before MutationObserver fires up
 });
 
 // Function will fire once a detection in the dom is notice
 const observer = new MutationObserver(mutationList => {
-    /* 
-        1. Loop over all individual records
-        2. If any of them are images, check the parent element
-        3. Inspect the parent element for headings, paragraphs, and other text (scanText function) 
-    */ 
+    // Loop over all new added nodes and scan for images
     mutationList.forEach(mutationRecord => {
-        // console.log(mutationRecord);
         mutationRecord.addedNodes.forEach(node => {
             scanPage(node);
         });
@@ -93,7 +87,6 @@ function blurr(img)
     img.after(overlayCard);
 }
 
-const MIN = 40; // Every image below this size will be ignored, specifically made to address twitter emojis
 // It will look images, and send them further for their content to be scanned
 function scanPage(node)
 {
@@ -128,3 +121,5 @@ function scanPage(node)
         }
     }
 }
+
+// test
