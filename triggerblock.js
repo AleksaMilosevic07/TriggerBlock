@@ -59,11 +59,16 @@ function scanText(text)
 // Blur the media
 function blurr(img)
 {
-    if(img.classList.contains("tb-blurred")) return;
+    if(img.parentElement.classList.contains("tb-shield-host")) return;
 
-    img.parentElement.classList.add("tb-shield-host");
+    // Create wrapper, take the img's DOM position, then move img into it
+    let shieldHost = document.createElement("div");
+    img.replaceWith(shieldHost);
+    shieldHost.appendChild(img);
+
+    shieldHost.classList.add("tb-shield-host");
     img.classList.add("tb-blurred");
-    // Overlay card, warning and reveal button added to here, and card is appended to img element
+    // Overlay card, warning and reveal button added to here, and card is appended to the wrapper
     let overlayCard = document.createElement("div");
     overlayCard.classList.add("tb-overlay");
     // Warning text
@@ -111,7 +116,9 @@ function scanPage(node)
     
     for(let i = 0; i < matches.length; i++)
     {
-        if (matches[i].clientWidth < MIN || matches[i].clientHeight < MIN) continue; // Ignore emojis
+        // Background images filter
+        if (matches[i].role === "presentation" || matches[i].getAttribute("aria-hidden") === "true") continue;
+        // if (matches[i].clientWidth < MIN || matches[i].clientHeight < MIN) continue; // Ignore emojis
         scanContext(matches[i], matches[i].parentElement, searchLevel)
     }
 }
@@ -139,6 +146,7 @@ function scanContext(media, parent, level)
             if(scanText(childText))
             {
                 blurr(media);
+                console.log(media);
                 return;
             }
         }
