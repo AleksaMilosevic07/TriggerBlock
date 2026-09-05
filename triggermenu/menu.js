@@ -34,7 +34,7 @@ loadPreferences.then((results) => {
 
         // Description
         let fearDesc = document.createElement("p");
-        fearDesc.innerHTML = `${fears[i].desc}`;
+        fearDesc.innerText = `${fears[i].desc}`;
         if(fearCheck.checked) fearDesc.hidden = false;
         else fearDesc.hidden = true;
         fearOptions.appendChild(fearDesc);
