@@ -47,7 +47,7 @@ function scanText(text)
             // Check if remainder of the string is a safeword
             for(let s = 0; s < safeWords.length; s++)
             {
-                let substring = text.substring(index - safeWords[s].length, index + safeWords[s].length);
+                let substring = text.substring(index - safeWords[s].length - 20, index + safeWords[s].length + 20);
                 if(substring.search(new RegExp(safeWords[s], "i")) != -1) return false;  
             }            
             return true; // It is not on the safeword list
