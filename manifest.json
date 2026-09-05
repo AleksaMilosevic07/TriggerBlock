@@ -14,8 +14,7 @@
     "gecko": {
       "id": "triggerblock@mozilla.org",
       "data_collection_permissions": {
-        "required": [],
-        "optional": ["none"]
+        "required": ["none"]
       }
     }
   },
