@@ -1,10 +1,10 @@
+/* Ai assisted in writing CSS classes */
 /* TriggerBlock media shield
-   Class contract (applied by triggerblock.js):
    - .tb-shield-host  → flagged media's parentElement
    - .tb-blurred      → the <img>/<video> itself
    - .tb-overlay      → warning card inserted as media's next sibling
-   - .tb-revealed     → added to host AND media on button click */
-
+   - .tb-revealed     → added to host AND media on button click 
+*/
 :root {
     --tb-blur-strength: 22px;
 }

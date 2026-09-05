@@ -10,7 +10,6 @@ let loadedFears = [];
 const loadPreferences = browser.storage.local.get({ fears: [] });
 loadPreferences.then((results) => {
     loadedFears = results.fears;
-    console.log(`loadedFears: ${loadedFears}`);
     for(let i = 0; i < fears.length; i++)
     {
         // Label
@@ -68,7 +67,6 @@ fearForm.addEventListener("submit", function(e){
 fearForm.addEventListener("formdata", function(e){
     let fearList = e.formData;
     fearList = fearList.getAll("fears");
-    console.log(`${fearList}`);
     const savePreference = browser.storage.local.set({"fears": fearList});
     savePreference.then(() => {
         console.log("Succesfully saved preference!");

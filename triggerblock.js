@@ -146,7 +146,6 @@ function scanContext(media, parent, level)
             if(scanText(childText))
             {
                 blurr(media);
-                console.log(media);
                 return;
             }
         }

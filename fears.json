@@ -37,7 +37,9 @@
       "spider solitaire",
       "spiderman",
       "spider man",
-      "spider lily"
+      "spider lily",
+      "system of a down",
+      "spiders song"
     ]
   },
   {
@@ -213,6 +215,39 @@
       "shark vacuum",
       "jaws of life",
       "jaws of death"
+    ]
+  },
+  {
+    "name": "trypanophobia",
+    "desc": "Fear of needles and injections",
+    "triggerWords": [
+      "trypanophobia",
+      "needle",
+      "syringe",
+      "injection",
+      "hypodermic",
+      "phlebotomy",
+      "blood draw",
+      "blood test",
+      "vaccine",
+      "vaccination",
+      "cannula",
+      "IV drip",
+      "immunization"
+    ],
+    "safeWords": [
+      "needle in a haystack",
+      "needle drop",
+      "needle and thread",
+      "sewing needle",
+      "knitting needle",
+      "needlepoint",
+      "needle nose pliers",
+      "needle-nose pliers",
+      "pine needles",
+      "record needle",
+      "turntable needle",
+      "space needle"
     ]
   }
 ]
