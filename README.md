@@ -26,4 +26,10 @@ Anyone willing to contribute is much appreciated and welcome, and you don't need
 You can help by reporting content that should have been flagged but wasn't, expanding our lists of trigger words and safe words, or suggesting entirely new phobias to support.
 
 ## Installation
-*(coming soon - extension is awaiting store publication)*
+Install TriggerBlock directly from the [Firefox Add-ons store](https://addons.mozilla.org/en-US/firefox/addon/triggerblock/).
+
+1. Click the link above
+2. Click **Add to Firefox**
+3. Confirm the permissions prompt
+
+That's it — TriggerBlock is now active. Click the extension icon in your toolbar to manage which phobias to filter.
