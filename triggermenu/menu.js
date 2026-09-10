@@ -73,6 +73,7 @@ fearForm.addEventListener("formdata", function(e){
     }).catch(() => {
         console.log("Failed to save preference!");
     });
+    browser.tabs.reload();
 });
 
 const logo = document.getElementById("logo");
