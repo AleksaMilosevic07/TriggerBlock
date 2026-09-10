@@ -32,4 +32,4 @@ Install TriggerBlock directly from the [Firefox Add-ons store](https://addons.mo
 2. Click **Add to Firefox**
 3. Confirm the permissions prompt
 
-That's it — TriggerBlock is now active. Click the extension icon in your toolbar to manage which phobias to filter.
+That is it! Click the extension icon in the toolbar to open settings.
