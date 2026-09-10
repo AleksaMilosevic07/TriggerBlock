@@ -1,3 +1,4 @@
+document.documentElement.classList.add("tb-pending");
 // Fears
 let fearsPromise = fetch(browser.runtime.getURL("fears.json"))
 .then(res => res.json())
@@ -22,6 +23,7 @@ const triggerDetection = Promise.all([fearsPromise, activeFearsPromise])
     }
     observer.observe(document.body, {subtree: true, childList: true});
     scanPage(document.body); // Initial scan, before MutationObserver fires up
+    document.documentElement.classList.remove("tb-pending");
 });
 
 // Function will fire once a detection in the dom is notice

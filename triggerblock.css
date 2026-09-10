@@ -1,12 +1,25 @@
 /* Ai assisted in writing CSS classes */
 /* TriggerBlock media shield
+   - .tb-pending      → added to <html> during init; blurs all media until scan completes
    - .tb-shield-host  → flagged media's parentElement
    - .tb-blurred      → the <img>/<video> itself
    - .tb-overlay      → warning card inserted as media's next sibling
-   - .tb-revealed     → added to host AND media on button click 
+   - .tb-revealed     → added to host AND media on button click
 */
 :root {
     --tb-blur-strength: 22px;
+}
+
+/* Prevents flash of unblurred content during async init.
+   Added to <html> synchronously, removed after scan completes. */
+.tb-pending img,
+.tb-pending video {
+    filter: blur(var(--tb-blur-strength));
+}
+
+/* Reveal button must still work during pending state */
+.tb-pending .tb-revealed {
+    filter: none !important;
 }
 
 .tb-shield-host {
