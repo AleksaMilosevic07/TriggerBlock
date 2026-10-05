@@ -11,6 +11,7 @@
     --text: #f0f0f0;
     --muted: #a8a29b;
     --switch-off: #454140;
+    --changeLog-bg: #1e2733;
 }
 
 body {
@@ -142,6 +143,88 @@ form {
     display: none;
 }
 
+/* What's new panel — swaps in for the fear form. Drawn as a raised card via
+   margin (inset from the page edges) plus padding (inset from the card edge).
+   No display rule here: the hidden attribute on #changeLog handles visibility. */
+.changeLog {
+    background-color: var(--changeLog-bg);
+    border-radius: 8px;
+    padding: 12px 14px 14px;
+    margin: 12px 16px;
+}
+
+/* Title keeps its accent colour and weight; the <b> version number
+   inside it goes full brightness so it stands out (see menu.js). */
+.changeLog h3 {
+    margin: 0 0 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-soft);
+}
+
+.changeLog h3 b {
+    font-weight: 700;
+    color: var(--text);
+}
+
+/* Timeline: a 1px rule via ul::before, inset by 0.4em so it doesn't overshoot
+   the first and last bullet. ul needs position:relative as the anchor. */
+.changeLog ul {
+    position: relative;
+    margin: 0;
+    padding-left: 26px;
+    color: var(--muted);
+    font-size: 0.82rem;
+    line-height: 1.4;
+}
+
+.changeLog ul::before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 0.4em;
+    bottom: 0.4em;
+    width: 1px;
+    background-color: var(--accent-soft);
+    opacity: 0.55;
+}
+
+.changeLog li {
+    margin-bottom: 6px;
+}
+
+.changeLog li:last-child {
+    margin-bottom: 0;
+}
+
+.changeLog li::marker {
+    color: var(--accent-soft);
+}
+
+/* Back button. Resets the generic `button` rule below (background, radius)
+   so only the label shows. */
+.goBack {
+    display: block;
+    margin: 10px 0 0;
+    padding: 0;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--muted);
+    background: none;
+    border-radius: 0;
+    text-align: left;
+    transition: color 0.18s ease, transform 0.18s ease;
+}
+
+.goBack:hover {
+    color: var(--accent-soft);
+    transform: translateX(-3px);
+}
+
+.goBack:active {
+    transform: translateX(-3px) scale(0.97);
+}
+
 .changeWarning {
     background-color: var(--warning-bg);
     border-left: 4px solid var(--warning-border);
@@ -217,6 +300,11 @@ a:hover {
     font-size: 0.72rem;
     font-weight: 400;
     color: var(--muted);
+    cursor: pointer;
+}
+
+.version:hover {
+    color: var(--accent-soft);
 }
 
 :focus-visible {
