@@ -89,5 +89,40 @@ logo.addEventListener("animationend", function(e){
 
 const manifest = browser.runtime.getManifest();
 const versionText = document.getElementById("version");
-
 versionText.innerText = `v${manifest.version}`;
+
+versionText.addEventListener("click", function(e){
+    toggleNews();
+});
+
+let goBack = document.getElementById("goBack");
+goBack.addEventListener("click", function(e){
+    toggleNews();
+})
+
+let current_version = document.getElementById("current_version");
+current_version.innerText = `What is new in ${manifest.version}`;
+let newsPanel = document.getElementById("changeLog");
+newsPanel.hidden = true;
+
+//* Everything new in the version
+let changeLogs = 
+[
+    "Saving preferences now reloads the tab", 
+    "Icons and favicons are now excluded from blur. This should make for a much better browsing experience", 
+    "Expanded UI to include change logs"
+];
+const changeLogList = document.getElementById("changeLogList");
+
+for(let i = 0; i < changeLogs.length; i++)
+{
+    let changeEntry = document.createElement("li");
+    changeEntry.innerText = changeLogs[i];
+    changeLogList.appendChild(changeEntry);
+}
+// Toggle changelogs for the latest version. Two different elements call it, so its needed seperately
+function toggleNews()
+{
+    newsPanel.hidden = !newsPanel.hidden;
+    fearForm.hidden = !fearForm.hidden;
+}
