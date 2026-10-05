@@ -59,8 +59,9 @@ function scanText(text)
 // Blur the media
 function blurr(img)
 {
+    // Media src attribute, will be used to filter out icons and favicons
     if(img.parentElement.classList.contains("tb-shield-host")) return;
-
+        
     // Create wrapper, take the img's DOM position, then move img into it
     let shieldHost = document.createElement("div");
     img.replaceWith(shieldHost);
@@ -129,6 +130,7 @@ function scanPage(node)
 function scanContext(media, parent, level)
 {
     if(level <= 0) return;
+    if(media.src.search(new RegExp("(^|[/_.-])icons?(?=[/_.?#-]|$)|favicon\\.[a-z0-9]+([?#]|$)|\\.ico([?#]|$)", "i")) != -1) return; // Ignores icons and favicons
     let probe = media.tagName === "VIDEO" ? media.title : media.alt;
     if(scanText(probe))
     {
@@ -145,6 +147,7 @@ function scanContext(media, parent, level)
             let childText = child.textContent;
             if(scanText(childText))
             {
+                console.log(`Flagged this media as sensitive because of text: "${childText}"`, media);
                 blurr(media);
                 return;
             }
