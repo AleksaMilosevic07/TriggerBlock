@@ -147,7 +147,7 @@ function scanContext(media, parent, level)
             let childText = child.textContent;
             if(scanText(childText))
             {
-                console.log(`Flagged this media as sensitive because of text: "${childText}"`, media);
+                //console.log(`Flagged this media as sensitive because of text: "${childText}"`, media);
                 blurr(media);
                 return;
             }
