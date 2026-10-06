@@ -140,8 +140,7 @@ function scanContext(media, parent, level)
     }
     else
     {
-        let parentElement = parent.parentElement;
-        let parentChildren = parentElement.childNodes;
+        let parentChildren = parent.childNodes;
         
         for(const child of parentChildren)
         {
@@ -154,15 +153,14 @@ function scanContext(media, parent, level)
             }
         }
         // If there is no meaningful content to scan in the child element, call the function again WITHOUT decrementing the level
-        if(parentElement.textContent.trim().length == 0 && parentElement)
+        if(parent && parent.textContent.trim().length == 0)
         {
-            parentElement = parentElement.parentElement;
-            scanContext(media, parentElement, level); 
+            scanContext(media, parent.parentElement, level); 
         }
         else 
         {
             // Call the function recursively for the parent
-            scanContext(media, parentElement, --level);
+            scanContext(media, parent.parentElement, --level);
         }
     }
 }
