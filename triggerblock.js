@@ -127,7 +127,7 @@ function scanPage(node)
 // Scan the surrounding text on the image, walk up the dom tree looking for potential matches
 function scanContext(media, parent, level)
 {
-    if(level <= 0) return;
+    if(level <= 0 || !parent) return;
     // Ignores icons and favicons
     let iconsFilter = new RegExp("(^|[/_.-])icons?(?=[/_.?#-]|$)|favicon\\.[a-z0-9]+([?#]|$)|\\.ico([?#]|$)", "i");
     
@@ -152,7 +152,7 @@ function scanContext(media, parent, level)
                 return;
             }
         }
-        // If there is no meaningful content to scan in the child element, call the function again WITHOUT decrementing the level
+        // If there is no text present, continue the recursion WITHOUT decrementing the level
         if(parent && parent.textContent.trim().length == 0)
         {
             scanContext(media, parent.parentElement, level); 
