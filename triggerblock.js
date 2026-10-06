@@ -124,13 +124,13 @@ function scanPage(node)
     }
 }
 
-
-
 // Scan the surrounding text on the image, walk up the dom tree looking for potential matches
 function scanContext(media, parent, level)
 {
     if(level <= 0) return;
-    if(media.src.search(new RegExp("(^|[/_.-])icons?(?=[/_.?#-]|$)|favicon\\.[a-z0-9]+([?#]|$)|\\.ico([?#]|$)", "i")) != -1) return; // Ignores icons and favicons
+    // Ignores icons and favicons
+    let iconsFilter = new RegExp("(^|[/_.-])icons?(?=[/_.?#-]|$)|favicon\\.[a-z0-9]+([?#]|$)|\\.ico([?#]|$)", "i");
+    if(media.src.search(iconsFilter) != -1) return; 
     let probe = media.tagName === "VIDEO" ? media.title : media.alt;
     if(scanText(probe))
     {
