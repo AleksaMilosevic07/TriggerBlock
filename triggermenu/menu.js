@@ -108,9 +108,8 @@ newsPanel.hidden = true;
 //* Everything new in the version
 let changeLogs = 
 [
-    "Saving preferences now reloads the tab", 
-    "Icons and favicons are now excluded from blur. This should make for a much better browsing experience", 
-    "Expanded UI to include change logs"
+    "Improved icon/favicon/emoji detection to avoid small website logos from being blurred", 
+    "..."
 ];
 const changeLogList = document.getElementById("changeLogList");
 
