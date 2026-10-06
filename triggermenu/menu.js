@@ -109,7 +109,8 @@ newsPanel.hidden = true;
 let changeLogs = 
 [
     "Improved icon/favicon/emoji detection to avoid small website logos from being blurred", 
-    "..."
+    "Fixed a bug that skipped over text directly adjacent to the media. This should drastically decrease the number of false-positives.",
+    "."
 ];
 const changeLogList = document.getElementById("changeLogList");
 
